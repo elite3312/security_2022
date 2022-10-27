@@ -1,0 +1,8 @@
+
+
+Canary                        : Yes →  value: 0x662c5a329ce46100
+NX                            : Yes
+PIE                           : Yes
+Fortify                       : No
+RelRO                         : Full
+
