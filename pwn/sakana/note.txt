@@ -6,4 +6,13 @@ PIE                           : Yes
 Fortify                       : No
 RelRO                         : Full
 
-1. 
+- https://www.youtube.com/watch?v=XaWlKYgmEDs
+
+- ret into libc
+
+- my local machine uses libc-2.31.so
+
+- the dynamic value in the got is libc
+other
+ Find '/bin/sh' or 'sh' in library
+ strings -tx pwn/sakana/libc-2.31.so | grep /bin/sh
