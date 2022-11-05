@@ -11,7 +11,7 @@ b *0x555555555670
 
 shell+37: 0x5555555557cc 
 pie base: 0x555555554000
-offset=0x17cc0x7f957de32000
+offset=0x17cc
 
 _libc_start_main+0x243:     0x7f5f1f1d6083
 libc base (found with gdb): 0x7f5f1f1b2000 
