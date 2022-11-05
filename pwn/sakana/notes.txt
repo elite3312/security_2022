@@ -1,0 +1,18 @@
+
+%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-%X-
+printf
+aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaabbaabcaabdaabeaabfaabgaabhaabiaabjaabkaablaabmaabnaaboaabpaabqaabraabsaabtaabuaabvaabwaabxaabyaabzaacbaaccaacdaaceaacfaacgaachaaciaacjaackaaclaacmaacnaacoaacpaac
+
+disassemble parse_cmd
+b *0x555555555670
+
+
+
+
+shell+37: 0x5555555557cc 
+pie base: 0x555555554000
+offset=0x17cc0x7f957de32000
+
+_libc_start_main+0x243:     0x7f5f1f1d6083
+libc base (found with gdb): 0x7f5f1f1b2000 
+offset=(_libc_start_main+0x243)-libc base =0x24083
