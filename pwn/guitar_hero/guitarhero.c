@@ -677,7 +677,7 @@ void upload(void)
 {
   puts("video name:");
   memset(video_name,0,0x20);
-  read(0,video_name,0x1f);
+  read(0,video_name,0x1f);//read 31 bytes
   puts("upload completed.");
   total_video = total_video + 1;
   subscriber = subscriber + 10;

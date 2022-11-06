@@ -1,0 +1,2 @@
+omedetou有printf %s
+upload/showvid有printf
