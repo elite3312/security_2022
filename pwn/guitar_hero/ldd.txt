@@ -1,5 +1,0 @@
-perry@perry-Virtual-Machine:~/Desktop/attack_and_defense_2022/security_2022$ ldd pwn/guitar_hero/guitarhero 
-        linux-vdso.so.1 (0x00007fff2f9ae000)
-        libseccomp.so.2 => /lib/x86_64-linux-gnu/libseccomp.so.2 (0x00007f688d400000)
-        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f688d20e000)
-        /lib64/ld-linux-x86-64.so.2 (0x00007f688d43c000)
