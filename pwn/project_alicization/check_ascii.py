@@ -1,0 +1,8 @@
+#s='system(\'bin/sh\')'
+s='\x31\xc0\x48\xbb\xd1\x9d\x96\x91\xd0\x8c\x97\xff\x48\xf7\xdb\x53\x54\x5f\x99\x52\x57\x54\x5e\xb0\x3b\x0f\x05'
+#s=list(s)
+for c in s :
+    #print(ord(c))
+    if ord(c)<0x20 or 0x7e<ord(c) :
+        print("illegal character found")
+
