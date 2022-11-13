@@ -9,6 +9,6 @@ PIE:      No PIE (0x400000)
 
 
 plan:
-overwrite atol's got address(0x4011b0)
+overwrite atol's got address
 input bin sh into buffer
 buffer gets passed into atol'addrss
