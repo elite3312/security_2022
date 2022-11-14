@@ -9,6 +9,8 @@ PIE:      No PIE (0x400000)
 
 
 plan:
-overwrite atol's got address
+find libc base with showinfo
+overwrite atol's got address with libc system with edit_info
 input bin sh into buffer
-buffer gets passed into atol'addrss
+buffer gets passed into system
+
