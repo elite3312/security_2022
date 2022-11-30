@@ -14,5 +14,5 @@ Some CTF like problems.
 - rop++                 (from NTUST)
 - how2know              (from NTUST)
 ## hw2
-dirty_pipe explot case studies
+dirty_pipe exploit case studies
 ## web
