@@ -11,3 +11,8 @@ Some CTF like problems.
 - Test_Subject_087      150
 - project_alicization   150
 - guitar_hero           150
+- rop++                 (from NTUST)
+- how2know              (from NTUST)
+## hw2
+dirty_pipe explot case studies
+## web

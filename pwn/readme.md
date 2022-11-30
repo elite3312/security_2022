@@ -39,3 +39,14 @@ Obviously we cannot call execv bin/sh, since this contains 'i'.
 - input shellcode that contain all ascii bytes
 # guitar_hero           
 - not solved
+# how2know
+- not solved
+- leak the flag address with rdi
+- write a shell code that compares each character of the flag, and exit upon a match
+# rop++
+- solution1:
+    - set up rop chain to read bin/sh into bss segment
+    - call syscall execv
+- solution2:
+    - mov bin/sh to datas segment
+    - call syscall execv
