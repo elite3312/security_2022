@@ -1,6 +1,7 @@
 #include <unistd.h>
 int main(int argc, char **argv) {
-  for (;;) write(1, "AAAAA", 5);
+  for (;;) {write(1, "AAAAA", 5);sleep(1);}
+  
 }
 // ./writer >foo
-//write to foo
+//gcc -o writer writer.c 
