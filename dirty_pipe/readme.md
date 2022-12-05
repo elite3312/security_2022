@@ -70,7 +70,8 @@ AAAA
 AAAA
 
 ```
-很明顯kernel存在bug，因為並沒有人去把BBBBB寫入foo，但foo卻出現了BBBBB。
+很明顯kernel存在bug，因為並沒有人去把BBBBB寫入foo，但foo卻出現了BBBBB。  
+詳細的重現過程有錄成影片:https://www.youtube.com/watch?v=QcjMg_NUPIY
 
 
 
