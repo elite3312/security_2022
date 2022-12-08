@@ -1,4 +1,5 @@
 # Gomai
+http://ctf.adl.tw:12000/
 flag has 5 parts:
 1. At the bottom of the html
 2. At the bottom of the style.css
