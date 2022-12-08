@@ -1,7 +1,7 @@
 var flagPart5 = console.log,
     doc = window.document,
     context = doc.querySelector('.js-loop'),
-    clones = context.querySelectorAll('.is-clone'),
+    clones = context.querySelectorAll('.is-clone'),//chichi.png, haha.png
     disableScroll = false,
     scrollHeight = 0,
     scrollPos = 0,
