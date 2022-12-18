@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>ぼっちちゃん福笑いアプリ</title>
+  <style>
+    .row {
+      margin-top: 4px;
+    }
+
+    .toast-body {
+      opacity: 1 !important;
+    }
+  </style>
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.4.0/fabric.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+  <div>
+    <img src="/static/img/title01.png" width="20%" height="20%">
+    <img src="/static/img/title02.png" width="10%" height="10%">
+    <img src="/static/img/title03.png" width="10%" height="10%">
+  </div>
+  <div>
+    [<a href="#about" onClick="show_about()">このアプリについて</a>]&nbsp;
+    [<a href="https://bocchi.rocks/">TVアニメ「ぼっち・ざ・ろっく！」公式サイト</a>]&nbsp;
+    [<a href="/?code">source code</a>]
+  </div>
+  <div>
+    <button id="save-btn"><i class="fa-solid fa-floppy-disk fa-2x"></i> 保存</button>
+    <button id="del-btn"><i class="fa-solid fa-eraser fa-2x"></i> 消去</button>
+    <button id="share-btn"><i class="fa-solid fa-share-from-square fa-2x"></i> シェア</button>
+    <button data-bs-toggle="modal" data-bs-target="#importModal"><i class="fa-solid fa-file-import fa-2x"></i>
+      インポート</button>
+    <button id="download-btn"><i class="fa-solid fa-download fa-2x"></i> ダウンロード</button>
+  </div>
+  <div id="btn_div">
+  </div>
+  <div>
+    <canvas id="cvs" style="border: thin solid; width: 100%;"></canvas>
+  </div>
+  <dialog id="about">
+    <h3>このアプリについて</h3>
+    <p>
+      でんでん(<a href="https://twitter.com/dendenhouse" target="_blank">@dendenhouse</a>)さんが作成された「<a
+        href="https://twitter.com/dendenhouse/status/1591788338205589506"
+        target="_blank">ぼっちちゃん福笑い</a>」のイラストをWebブラウザ上で遊べるようにアプリ化したものです。
+    </p>
+    <p>
+    <ul>
+      <li>GitHub:&nbsp;<a href="https://github.com/furandon-pig/bocchi-fukuwarai">furandon-pig/bocchi-fukuwarai</a>
+    </ul>
+    </p>
+    <p>
+      <button onClick="document.getElementById('about').close()">OK</button>
+    </p>
+  </dialog>
+  <div class="toast-container position-fixed top-0 start-0 p-3">
+    <div id="btnToast" class="toast">
+      <div class="toast-header">
+        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect id="btnToastSvgRect" width="100%" height="100%" fill="#007aff"></rect>
+        </svg>
+        <strong class="me-auto" id="btnToastTitle"></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body" id="btnToastBody">
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="importModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">メッセージ</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="import-string" class="col-form-label">共有データ</label>
+            <input type="text" class="form-control" id="import-string">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+          <button type="button" class="btn btn-primary" id="import-btn">インポート</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+  integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script src="/static/app.js"></script>
+<script>
+  var layout = [{'id': 'bocchi', 'left': 350, 'top': 180}, {'id': 'eye01', 'left': 442, 'top': 275}, {'id': 'eye02', 'left': 4, 'top': 195}, {'id': 'eye03', 'left': 8, 'top': 487}, {'id': 'eye04', 'left': 19, 'top': 764}, {'id': 'eye05', 'left': 826, 'top': 18}, {'id': 'eye06', 'left': 853, 'top': 313}, {'id': 'eye07', 'left': 857, 'top': 524}, {'id': 'eye08', 'left': 889, 'top': 787}, {'id': 'lip01', 'left': 536, 'top': 450}, {'id': 'lip02', 'left': 112, 'top': 361}, {'id': 'lip03', 'left': 99, 'top': 660}, {'id': 'lip04', 'left': 113, 'top': 840}, {'id': 'lip05', 'left': 915, 'top': 212}, {'id': 'lip06', 'left': 861, 'top': 436}, {'id': 'lip07', 'left': 876, 'top': 687}, {'id': 'hair01', 'left': 1122, 'top': 22}, {'id': 'hair02', 'left': 1270, 'top': 30}, {'id': 'hair03', 'left': 1162, 'top': 148}, {'id': 'hair04', 'left': 1128, 'top': 296}, {'id': 'hako01', 'left': 1131, 'top': 497}];
+  window.onload = function () {
+    var app = new Fukuwarai();
+    app.init();
+    document.getElementById('download-btn').onclick = app.download_image;
+
+    document.getElementById('del-btn').onclick = function () {
+      for (let activeObj of canvas.getActiveObjects()) {
+        canvas.remove(activeObj);
+      }
+    }
+
+    document.getElementById('save-btn').onclick = function () {
+      let currLayout = [];
+      canvas.getObjects().forEach((obj) => {
+        currLayout.push({
+          id: obj.id,
+          left: obj.left,
+          top: obj.top,
+        });
+      })
+      axios.post('/api/save', {
+        layout: currLayout,
+      }).then((res) => {
+        let toastMsg, fillColor;
+        if (res.status == 200 && res.data == 1) {
+          toastMsg = '保存に成功しました';
+          fillColor = '#007aff';
+        } else {
+          toastMsg = '保存に失敗しました';
+          fillColor = '#ff3300';
+        }
+        document.getElementById('btnToastSvgRect').style.fill = fillColor;
+        document.getElementById('btnToastTitle').textContent = toastMsg;
+        document.getElementById('btnToastBody').textContent = '';
+        new bootstrap.Toast(document.getElementById('btnToast')).show();
+      });
+    }
+
+    document.getElementById('share-btn').onclick = function () {
+      axios.get('/api/share').then((res) => {
+        let toastMsg, fillColor;
+        toastMsg = '共有データ';
+        fillColor = '#007aff';
+        document.getElementById('btnToastSvgRect').style.fill = fillColor;
+        document.getElementById('btnToastTitle').textContent = toastMsg;
+        // printable share layout
+        document.getElementById('btnToastBody').textContent = res.data;
+        new bootstrap.Toast(document.getElementById('btnToast')).show();
+      });
+    }
+
+    document.getElementById('import-btn').onclick = function () {
+      axios.post('/api/import', {
+        'layout': document.getElementById('import-string').value
+      }).then((res) => {
+        let toastMsg, fillColor, toastContent = '';
+        if (res.status == 200 && res.data == 1) {
+          toastMsg = 'インポートに成功しました';
+          fillColor = '#007aff';
+          toastContent = '3秒後にページを更新する';
+          setTimeout(function () {
+            window.location.reload();
+          }, 3000);
+        } else {
+          toastMsg = 'インポートに失敗しました';
+          fillColor = '#ff3300';
+        }
+        document.getElementById('btnToastSvgRect').style.fill = fillColor;
+        document.getElementById('btnToastTitle').textContent = toastMsg;
+        document.getElementById('btnToastBody').textContent = toastContent;
+        new bootstrap.Toast(document.getElementById('btnToast')).show();
+      });
+    }
+  }
+</script>
+
+</html>
