@@ -16,9 +16,9 @@ def request(i):
                          headers={"X-Forwarded-For": "127.0.0.1",
                                   "User-Agent": "STARRYBrowser",
                                   "Accept-Language": "ja-JP"}, auth=("bocchi", pw))
-        if len(r.text) != 1370:
+        if r.status_code!=401:
             print(pw)
-            with open('pw.txt', 'w') as f:
+            with open('./debug/pw.txt', 'w') as f:
                 f.write(pw)
             #break
             exit()

