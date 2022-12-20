@@ -1,7 +1,7 @@
 import requests
 import numpy as np
 from multiprocessing import Process
-tn = 20
+tn = 1
 lines = open("./debug/rockyou.txt", "r", encoding="latin-1").readlines()
 splits = np.array_split(lines, tn)
 

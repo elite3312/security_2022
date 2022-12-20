@@ -1,0 +1,336 @@
+ 62%|████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                            | 8951200/14344391 [5:02:14<5:54:41, 62%|████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                            | 8951300/14344391 [5:02:14<6:06:46, 62%|████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                            | 8951400/14344391 [5:02:14<5:01:10, 62%|████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                            | 8951500/14344391 [5:02:15<4:10:17, 62%|████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                            | 8951600/14344391 [5:02:15<3:53:56, 62%|████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                            | 8951700/14344391 [5:02:16<6:26:59, 232.25it/s]Exception in thread Thread-3 (request):
+Traceback (most recent call last):
+Exception in thread Thread-5 (request):
+Traceback (most recent call last):
+Exception in thread Thread-6 (request):
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+Exception in thread Thread-4 (request):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    conn = connection.create_connection(
+    conn = connection.create_connection(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    conn = connection.create_connection(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+Exception in thread Thread-2 (request):
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+    httplib_response = self._make_request(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+    httplib_response = self._make_request(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+    httplib_response = self._make_request(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 239, in request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 239, in request
+    conn.request(method, url, **httplib_request_kw)
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1282, in request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1282, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 239, in request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1282, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1282, in request
+    httplib_response = self._make_request(
+    self._send_request(method, url, body, headers, encode_chunked)
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1328, in _send_request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1328, in _send_request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1328, in _send_request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+    self.endheaders(body, encode_chunked=encode_chunked)
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+    self.endheaders(body, encode_chunked=encode_chunked)
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 239, in request
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+    self.send(msg)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+    self.send(msg)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1282, in request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    self.send(msg)
+    self.connect()
+    self.connect()
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 205, in connect
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 205, in connect
+    self.connect()
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    conn = self._new_conn()
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 205, in connect
+    self.connect()
+    conn = self._new_conn()
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 205, in connect
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    self._send_request(method, url, body, headers, encode_chunked)
+    conn = self._new_conn()
+    conn = self._new_conn()
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000263E6C60430>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+    raise NewConnectionError(
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000263E6C62E00>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+    raise NewConnectionError(
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000263E6C619F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 489, in send
+
+During handling of the above exception, another exception occurred:
+
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 489, in send
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1328, in _send_request
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000263E6C609A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+Traceback (most recent call last):
+
+During handling of the above exception, another exception occurred:
+
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 489, in send
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 489, in send
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    self.connect()
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 205, in connect
+    resp = conn.urlopen(
+    resp = conn.urlopen(
+    resp = conn.urlopen(
+    resp = conn.urlopen(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    conn = self._new_conn()
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    retries = retries.increment(
+    retries = retries.increment(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    retries = retries.increment(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    retries = retries.increment(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000263E6C62860>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 489, in send
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000263E6C60430>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000263E6C62E00>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000263E6C609A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000263E6C619F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+Traceback (most recent call last):
+Traceback (most recent call last):
+
+During handling of the above exception, another exception occurred:
+
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1016, in _bootstrap_inner
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1016, in _bootstrap_inner
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 953, in run
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    self.run()
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 953, in run
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "D:\1111_work\1111attack_and_defense\security_2022\web\monster\brute_force.py", line 15, in request
+    self._target(*self._args, **self._kwargs)
+  File "D:\1111_work\1111attack_and_defense\security_2022\web\monster\brute_force.py", line 15, in request
+    self.run()
+    self._target(*self._args, **self._kwargs)
+  File "D:\1111_work\1111attack_and_defense\security_2022\web\monster\brute_force.py", line 15, in request
+    resp = conn.urlopen(
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 953, in run
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    self._target(*self._args, **self._kwargs)
+    r = requests.get('http://ctf.adl.tw:12002/admin',
+    r = requests.get('http://ctf.adl.tw:12002/admin',
+    r = requests.get('http://ctf.adl.tw:12002/admin',
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 73, in get
+  File "D:\1111_work\1111attack_and_defense\security_2022\web\monster\brute_force.py", line 15, in request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 73, in get
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 73, in get
+    r = requests.get('http://ctf.adl.tw:12002/admin',
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 59, in request
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 59, in request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 59, in request
+    return request("get", url, params=params, **kwargs)
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 59, in request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 587, in request
+    return session.request(method=method, url=url, **kwargs)
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 587, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 587, in request
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 587, in request
+    retries = retries.increment(
+    resp = self.send(prep, **send_kwargs)
+    resp = self.send(prep, **send_kwargs)
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 701, in send
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 701, in send
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 701, in send
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 565, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 565, in send
+    r = adapter.send(request, **kwargs)
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 565, in send
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 
+0x00000263E6C609A0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+    raise ConnectionError(e, request=request)
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 
+0x00000263E6C619F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 
+0x00000263E6C62E00>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 
+0x00000263E6C60430>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000263E6C62860>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "D:\1111_work\1111attack_and_defense\security_2022\web\monster\brute_force.py", line 15, in request
+    r = requests.get('http://ctf.adl.tw:12002/admin',
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Perry\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='ctf.adl.tw', port=12002): Max retries exceeded with url: /admin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 
+0x00000263E6C62860>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+ 62%|████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                            | 8951700/14344391 [5:02:16<3:02:06, 493.56it/s]
