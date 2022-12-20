@@ -2,7 +2,7 @@ import requests
 import numpy as np
 import threading
 from tqdm import tqdm
-tn = 300
+tn = 5
 lines = open("./debug/rockyou.txt", "r", encoding="latin-1").readlines()
 lines.reverse()
 splits = np.array_split(lines, tn)
