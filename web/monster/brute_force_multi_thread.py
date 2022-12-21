@@ -5,6 +5,8 @@ from tqdm import tqdm
 tn = 20
 lines = open("./debug/rockyou.txt", "r", encoding="latin-1").readlines()
 #lines.reverse()
+print(len(lines))
+lines=lines[4700000:]
 splits = np.array_split(lines, tn)
 pbar = tqdm(total=len(lines))
 
