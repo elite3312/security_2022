@@ -1,3 +1,3 @@
 # python string attack
 
-deserialization
+hint: deserialization
