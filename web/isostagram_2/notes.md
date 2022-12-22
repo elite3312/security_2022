@@ -27,7 +27,7 @@ PS D:\1111_work\1111attack_and_defense\sqlmap> py sqlmap.py -r './my_tamper/sear
 ```
 
 # Sqlmap logs
-```ps
+```
 PS D:\1111_work\1111attack_and_defense\sqlmap> py .\sqlmap.py -h
         ___
        __H__
