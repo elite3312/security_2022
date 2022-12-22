@@ -16,4 +16,10 @@ Some CTF like problems.
 ## hw2
 Dirty_pipe exploit case studies
 ## web
-- Gomai1:50
+- gomai                 50
+- Bocchi Search Tool    100
+- monster               100
+- isostagram_1          100
+- isostagram_2          100
+- fukuwarais            150    
+- message_board         200
