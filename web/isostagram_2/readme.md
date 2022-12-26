@@ -1,5 +1,6 @@
 # sql injection - database
 The idea is to use sqlmap to start a time based attack.
+- payload must be within 50 characters.
 - ref 1: How to use a custom tamper.py
 https://www.cnblogs.com/hetianlab/p/16012663.html
 - ref 2: How to use sqlmap.
