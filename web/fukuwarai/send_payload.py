@@ -60,6 +60,5 @@ def payload():
 
 
 payload()
-#normal_post_request()
 
 
